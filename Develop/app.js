@@ -131,8 +131,7 @@ createEmployee = () => {
       choices: ['Manager','Engineer', 'Intern']
     }
   ]).then(response => {
-    switch (response.role) {      
-    console.log("New " + response.role + " created!");
+    switch (response.role) {     
       case 'Manager':
          managerQ();
          break;
