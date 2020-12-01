@@ -28,13 +28,13 @@ Once invoked, the console prompts the user to pick a role to input data for. Eac
 
 ## Demo
 
-![application demo](./utils/application.png)
+![application demo](./Assets/application.png)
 
 Video of project in use:
 
-https://drive.google.com/file/d/19WHzHYCT5NA3b4bi34lnuC_JBRb7xqYE/view
+https://drive.google.com/file/d/1lv6_WArt8XaeNexAZJSS75LQqRibRDac/view
 
-[![Watch the video](./utils/videoimage.png)](https://drive.google.com/file/d/19WHzHYCT5NA3b4bi34lnuC_JBRb7xqYE/view)
+[![Watch the video](./Assets/videoimage.png)](https://drive.google.com/file/d/1lv6_WArt8XaeNexAZJSS75LQqRibRDac/view)
 
 
 ## Contact
