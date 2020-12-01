@@ -45,15 +45,90 @@ createEmployee = () => {
 
 
 managerQ = () => {
+  await inquirer.prompt([
+    {
+        type: 'input',
+        name: 'name',
+        message: "Can I have the manager's name?"
+    },
+    {
+        type: 'input',
+        name: 'id',
+        message: "And the managers ID number?"
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: "Next, the manager's email address?"
+    },
+    {
+        type: 'input',
+        name: 'officeNumber',
+        message: "And finally, the manager's office number?"
+    }
+  ]).then(response => {
 
+
+  )};
+  addagain();
 };
 
 engineerQ = () => {
+  await inquirer.prompt([
+    {
+        type: 'input',
+        name: 'name',
+        message: "Can I have the manager's name?"
+    },
+    {
+        type: 'input',
+        name: 'id',
+        message: "And the managers ID number?"
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: "Next, the manager's email address?"
+    },
+    {
+      type: 'input',
+      name: 'github',
+      message:" ",
+    }
+  ]).then(response => {
 
+
+  )};
+  addagain();
 };
 
 internQ = () => {
+  await inquirer.prompt([
+    {
+        type: 'input',
+        name: 'name',
+        message: "Can I have the manager's name?"
+    },
+    {
+        type: 'input',
+        name: 'id',
+        message: "And the managers ID number?"
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: "Next, the manager's email address?"
+    },
+    {
+      type: 'input',
+      name: 'school',
+      message:" ",
+    }
+  ]).then(response => {
 
+
+  )};
+  addagain();
 };
 
 addAgain = () => { 
@@ -71,7 +146,7 @@ addAgain = () => {
         }; 
       if (response.add === 'no') {
         createTeam();
-        console.log("Looks like a good batch of new hires!");
+        console.log("Looks like a good batch of new hires! Generating your profile now.");
       };
   });      
 };
@@ -81,7 +156,8 @@ addAgain = () => {
 // generate and return a block of HTML including templated divs for each employee!
 
 createTeam = () => {
-
+  fs.writeFile(outputPath, render(employeesArr), err => {
+    err ? console.log(err) : console.log("Go team! Your profile was created!");
 };
 
 // After you have your html, you're now ready to create an HTML file using the HTML
