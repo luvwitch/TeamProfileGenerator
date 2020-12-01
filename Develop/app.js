@@ -12,41 +12,14 @@ const render = require("./lib/htmlRenderer");
 
 const employees = [];
 
-createEmployee = () => {  
-  inquirer.prompt([
-    {
-      type: 'check',
-      name: 'role',
-      message: 'Which role would you like to create?',
-      choices: ['Manager','Engineer', 'Intern'],
-    }
-  ]).then(response => {
-    console.log("New " + response.role + " created!");
-    switch (response.role) {
-      case 'Manager':
-         managerQ();
-         break;
-      case 'Engineer':
-        engineerQ();
-        break;
-      case 'Intern':
-        internQ();
-        break;
-      default:
-        console.log("You must choose a role.");
-        return;  
-    };
-  });
-};
-
 // HINT: each employee type (manager, engineer, or intern) has slightly different
 // information; write your code to ask different questions via inquirer depending on
 // employee type.
 
 //  MANAGER QUESTIONS ARRAY
 
-managerQ = () => {
-  inquirer.prompt([
+managerQ = async () => {
+  await inquirer.prompt([
     {
         type: 'input',
         name: 'name',
@@ -75,13 +48,13 @@ managerQ = () => {
 
   });
 
-  addagain();
+  addAgain();
 };
 
 //  ENGINEER QUESTIONS ARRAY
 
-engineerQ = () => {
-  inquirer.prompt([
+engineerQ = async () => {
+  await inquirer.prompt([
     {
         type: 'input',
         name: 'name',
@@ -104,19 +77,19 @@ engineerQ = () => {
     }
   ]).then(response => {
 
-    const emgineer = new Engineer(response.name, response.id, response.email, response.github);
+    const engineer = new Engineer(response.name, response.id, response.email, response.github);
     employees.push(engineer);
     return engineer;
 
   });
 
-  addagain();
+  addAgain();
 };
 
 //  INTERN QUESTIONS ARRAY
 
-internQ = () => {
-  inquirer.prompt([
+internQ = async () => {
+  await inquirer.prompt([
     {
         type: 'input',
         name: 'name',
@@ -144,7 +117,36 @@ internQ = () => {
     return intern;
 
   });
-  addagain();
+  addAgain();
+};
+
+// Run inquirer to check for the role being created, then ask questions basd of the specific role
+
+createEmployee = () => {  
+  inquirer.prompt([
+    {
+      type: 'list',
+      name: 'role',
+      message: "Which role would you like to create?",
+      choices: ['Manager','Engineer', 'Intern']
+    }
+  ]).then(response => {
+    switch (response.role) {      
+    console.log("New " + response.role + " created!");
+      case 'Manager':
+         managerQ();
+         break;
+      case 'Engineer':
+        engineerQ();
+        break;
+      case 'Intern':
+        internQ();
+        break;
+      default:
+        console.log("You must choose a role.");
+        return;  
+    };
+  });
 };
 
 // Check if more employees will be hired/added
@@ -152,7 +154,7 @@ internQ = () => {
 addAgain = () => { 
   inquirer.prompt([
     {      
-      type: 'check',
+      type: 'list',
       name: 'add',
       message: 'Add more team members?',
       choices: ['yes', 'no'],     
@@ -184,3 +186,5 @@ createTeam = () => {
 // `output` folder. You can use the variable `outputPath` above target this location.
 // Hint: you may need to check if the `output` folder exists and create it if it
 // does not.
+
+createEmployee();
