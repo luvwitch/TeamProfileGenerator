@@ -43,6 +43,7 @@ createEmployee = () => {
 // information; write your code to ask different questions via inquirer depending on
 // employee type.
 
+//  MANAGER QUESTIONS ARRAY
 
 managerQ = () => {
   await inquirer.prompt([
@@ -68,39 +69,51 @@ managerQ = () => {
     }
   ]).then(response => {
 
+    const manager = new Manager(response.name, response.id, response.email, response.officeNumber);
+    employeeArr.push(manager);
+    return manager;
 
   )};
+
   addagain();
 };
+
+//  ENGINEER QUESTIONS ARRAY
 
 engineerQ = () => {
   await inquirer.prompt([
     {
         type: 'input',
         name: 'name',
-        message: "Can I have the manager's name?"
+        message: "Can I have the engineer's name?"
     },
     {
         type: 'input',
         name: 'id',
-        message: "And the managers ID number?"
+        message: "And the engineer's ID number?"
     },
     {
         type: 'input',
         name: 'email',
-        message: "Next, the manager's email address?"
+        message: "Next, the engineer's email address?"
     },
     {
       type: 'input',
       name: 'github',
-      message:" ",
+      message:"What is the engineer's github username?",
     }
   ]).then(response => {
 
+    const emgineer = new Engineer(response.name, response.id, response.email, response.github);
+    employeeArr.push(engineer);
+    return engineer;
 
   )};
+  
   addagain();
 };
+
+//  INTERN QUESTIONS ARRAY
 
 internQ = () => {
   await inquirer.prompt([
@@ -130,6 +143,8 @@ internQ = () => {
   )};
   addagain();
 };
+
+// Check if more employees will be hired/added
 
 addAgain = () => { 
   inquirer.prompt([
