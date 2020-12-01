@@ -17,11 +17,11 @@ createEmployee = () => {
     {
       type: 'check',
       name: 'role',
-      message: 'Which role would you like to hire for?',
-     choices: ['Manager','Engineer', 'Intern'],
+      message: 'Which role would you like to create?',
+      choices: ['Manager','Engineer', 'Intern'],
     }
   ]).then(response => {
-    console.log("New " + response.role + " hired!"),
+    console.log("New " + response.role + " created!"),
     switch (response.role){
       case 'Manager':
          managerQ();
@@ -109,7 +109,7 @@ engineerQ = () => {
     return engineer;
 
   )};
-  
+
   addagain();
 };
 
@@ -120,25 +120,28 @@ internQ = () => {
     {
         type: 'input',
         name: 'name',
-        message: "Can I have the manager's name?"
+        message: "What is the intern's name?"
     },
     {
         type: 'input',
         name: 'id',
-        message: "And the managers ID number?"
+        message: "And the intern's ID number?"
     },
     {
         type: 'input',
         name: 'email',
-        message: "Next, the manager's email address?"
+        message: "The intern's email address?"
     },
     {
       type: 'input',
       name: 'school',
-      message:" ",
+      message:"What school did the intern graduate from OR is currently attending?",
     }
   ]).then(response => {
 
+    const intern = new Intern(response.name, response.id, response.email, response.school);
+    employeeArr.push(intern);
+    return intern;
 
   )};
   addagain();
@@ -180,4 +183,3 @@ createTeam = () => {
 // `output` folder. You can use the variable `outputPath` above target this location.
 // Hint: you may need to check if the `output` folder exists and create it if it
 // does not.
-
