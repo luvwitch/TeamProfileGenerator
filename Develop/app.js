@@ -10,7 +10,7 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-const employeeArr = [];
+const employees = [];
 
 createEmployee = () => {  
   inquirer.prompt([
@@ -70,10 +70,10 @@ managerQ = () => {
   ]).then(response => {
 
     const manager = new Manager(response.name, response.id, response.email, response.officeNumber);
-    employeeArr.push(manager);
+    employees.push(manager);
     return manager;
 
-  )};
+  });
 
   addagain();
 };
@@ -105,10 +105,10 @@ engineerQ = () => {
   ]).then(response => {
 
     const emgineer = new Engineer(response.name, response.id, response.email, response.github);
-    employeeArr.push(engineer);
+    employees.push(engineer);
     return engineer;
 
-  )};
+  });
 
   addagain();
 };
@@ -140,10 +140,10 @@ internQ = () => {
   ]).then(response => {
 
     const intern = new Intern(response.name, response.id, response.email, response.school);
-    employeeArr.push(intern);
+    employees.push(intern);
     return intern;
 
-  )};
+  });
   addagain();
 };
 
@@ -174,9 +174,10 @@ addAgain = () => {
 // generate and return a block of HTML including templated divs for each employee!
 
 createTeam = () => {
-  fs.writeFile(outputPath, render(employeesArr), err => {
+  fs.writeFile(outputPath, render(employees), err => {
     err ? console.log(err) : console.log("Go team! Your profile was created!");
-};
+  });
+};  
 
 // After you have your html, you're now ready to create an HTML file using the HTML
 // returned from the `render` function. Now write it to a file named `team.html` in the
