@@ -36,6 +36,10 @@ https://drive.google.com/file/d/1lv6_WArt8XaeNexAZJSS75LQqRibRDac/view
 
 [![Watch the video](./Assets/videoimage.png)](https://drive.google.com/file/d/1lv6_WArt8XaeNexAZJSS75LQqRibRDac/view)
 
+![final](./Assets/finalstyling.png)
+
+When the team.html file is viewed in browser, the team profile will be styled as above.
+
 
 ## Contact
 
