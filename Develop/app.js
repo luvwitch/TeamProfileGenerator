@@ -21,8 +21,8 @@ createEmployee = () => {
       choices: ['Manager','Engineer', 'Intern'],
     }
   ]).then(response => {
-    console.log("New " + response.role + " created!"),
-    switch (response.role){
+    console.log("New " + response.role + " created!");
+    switch (response.role) {
       case 'Manager':
          managerQ();
          break;
@@ -46,7 +46,7 @@ createEmployee = () => {
 //  MANAGER QUESTIONS ARRAY
 
 managerQ = () => {
-  await inquirer.prompt([
+  inquirer.prompt([
     {
         type: 'input',
         name: 'name',
@@ -81,7 +81,7 @@ managerQ = () => {
 //  ENGINEER QUESTIONS ARRAY
 
 engineerQ = () => {
-  await inquirer.prompt([
+  inquirer.prompt([
     {
         type: 'input',
         name: 'name',
@@ -116,7 +116,7 @@ engineerQ = () => {
 //  INTERN QUESTIONS ARRAY
 
 internQ = () => {
-  await inquirer.prompt([
+  inquirer.prompt([
     {
         type: 'input',
         name: 'name',
