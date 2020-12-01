@@ -1,0 +1,32 @@
+body{
+    background-image: url("https://www.muralswallpaper.com/app/uploads/black-marble-textures-plain.jpg");
+    background-size: cover;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: .2rem;
+}
+
+div.team-area{
+    margin-top: 3rem;
+}
+
+h1{
+    font-size: 3.5rem;
+}
+
+.card-header{
+    background-color: lightgray;
+
+}
+
+.jumbotron{
+    background-color: lightgray;
+}
+
+.card{
+    margin: 1rem;
+}
+
+h2,
+h3{
+    text-align: center;
+}
